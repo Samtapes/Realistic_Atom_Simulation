@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .atomo{
+           width: 40vh; 
+           height: 40vh;
+           /* background-color: blue; */
+           position: relative;
+           border-radius: 100%;
+           /* transition: 0.4s; */
+        }
+
+        .nucleo{
+            position: absolute;
+            width: 20vh;
+            height: 20vh;
+            /* background-color: turquoise; */
+            margin-top: 25%;
+            margin-left: 25%;
+            text-align: center;
+            border-radius: 100%;
+            z-index: 1;
+            /* transition: 0.1s; */
+        }
+
+        .eletroesfera{
+            position: absolute;
+            margin-top: 10.5%;
+            margin-left: 10.5%;
+            text-align: center;
+            width: 30vh;
+            height: 30vh;
+            /* background-color: green; */
+            /* border: 1vh solid green; */
+            border-radius: 100%;
+        }
+
+        .eletron{
+            width: 5vh;
+            height: 5vh;
+            background-color: yellow;
+            border-radius: 100px;
+            margin-left: calc(50% - 2.5vh);
+            margin-top: -10%;
+        }
+
+        img{
+            width: 28vh;
+            margin-left: -17%;
+            margin-top: -13%;            
+        }
+    </style>
+</head>
+<body>
+    <div class="atomo">
+        <div class="nucleo">
+            <img src="./Atom.png">
+        </div>
+
+        <div class="eletroesfera">
+            <div class="eletron"></div>
+        </div>
+
+        <div class="eletroesfera">
+            <div class="eletron"></div>
+        </div>
+
+        <div class="eletroesfera">
+            <div class="eletron"></div>
+        </div>
+
+        <div class="eletroesfera">
+            <div class="eletron"></div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var eletroesfera01 = document.getElementsByClassName("eletroesfera")[0];
+        var eletroesfera02 = document.getElementsByClassName("eletroesfera")[1];
+        var eletroesfera03 = document.getElementsByClassName("eletroesfera")[2];
+        var eletroesfera04 = document.getElementsByClassName("eletroesfera")[3];
+
+
+        setInterval(Rotate01, 1);
+        var rotation01 = 0;
+        var rotation02 = 0;
+        var rotation03 = 0;
+        var rotation04 = 0;
+
+
+
+        function Rotate01(){
+            rotation01++;
+            eletroesfera01.style.transform = 'rotate(' + rotation01 + 'deg)';
+            setTimeout(Rotate02, 800);
+            setTimeout(Rotate03, 1120);
+            setTimeout(Rotate04, 1820);
+        }
+
+        function Rotate02(){
+            rotation02++;
+            eletroesfera02.style.transform = 'rotate(' + rotation02 + 'deg)';
+        }
+
+        function Rotate03(){
+            rotation03++;
+            eletroesfera03.style.transform = 'rotate(' + rotation03 + 'deg)';
+        }
+
+        function Rotate04(){
+            rotation04++;
+            eletroesfera04.style.transform = 'rotate(' + rotation04 + 'deg)';
+        }
+
+        var nucleo = document.getElementsByClassName("nucleo")[0];
+        setInterval(Agitado, 10);
+
+        function Agitado(){
+            var randomX = parseInt(Math.random() * 25);
+            var randomY = parseInt(Math.random() * 25);
+
+
+            while(randomX < 23){
+                var randomX = parseInt(Math.random() * 25);
+            }
+
+            while(randomY < 23){
+                var randomY = parseInt(Math.random() * 25);
+            }
+
+
+            nucleo.style.marginLeft = randomX + '%';
+            nucleo.style.marginTop = randomY + '%';
+        }
+
+        var atomo = document.getElementsByClassName("atomo")[0];
+        setInterval(Energy, 100);
+
+        function Energy(){
+            atomo.style.transition = '0.4s';
+            var randomX = parseInt(Math.random() * 90);
+            var randomY = parseInt(Math.random() * 40);
+
+
+            atomo.style.marginLeft = randomX + '%';
+            atomo.style.marginTop = randomY + '%';
+        }
+    </script>
+</body>
+</html>
